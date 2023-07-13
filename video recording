@@ -1,0 +1,14 @@
+import cv2
+
+#reading video
+video = cv2.VideoCapture('data/Avengers.mp4')
+
+while True:
+    success,frame = video.read()
+
+    cv2.imshow('video',frame)
+
+    if cv2.waitKey(1) & 0xFF ==27: #escape key
+        break 
+video.release()
+cv2.destroyAllWindows()
