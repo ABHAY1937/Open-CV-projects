@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+    <h1>hei welcome back!!!</h1>
+    <h2>YAaaaa</h2>
+    <h3>!!!!!</h3>
+    <input type = "text" id="word" placeholder="Enter the First Word">
+    <input type = 'number' id ='number' placeholder = 'Enter the Number of Words to Generate'>
+    <button id ="predict">predict</button>
+    <p id = "predictionResults"></p>
+    <script>
+        $(document).ready(function () {
+            $('#predict').click(function () {
+
+                var inputText = $("#word").val();
+                var numWords = $("#number").val();
+                console.log(inputText)
+                $.ajax({
+                    type:"POST",
+                    url:"/predict",
+                    data:{input_text:inputText,num_words:numWords},
+                    success: function(response){
+                        $("#predictionResults").text("returned text :"+response.input);
+                    }
+                })
+            })
+        })
+    </script>
+    
+    
+</body>
+</html>
