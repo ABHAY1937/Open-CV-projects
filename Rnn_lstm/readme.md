@@ -1,1 +1,0 @@
-Next word generation model based on RNN LSTM. Here in this model I used flask and  html code to deploy the output in the front-end 
